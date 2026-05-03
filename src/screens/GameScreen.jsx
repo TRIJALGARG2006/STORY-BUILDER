@@ -115,7 +115,7 @@ export default function GameScreen({ storyId, onBack, onUnlock, light }) {
         const full = (data.content||[]).map(b=>b.text||"").join("");
         const m = full.match(/CHOICES:(\[[\s\S]*?\])/);
         let choices = [];
-        if (m) { try { choices = JSON.parse(m[1]); } catch(e) { /* noop */ } }
+        if (m) { try { choices = JSON.parse(m[1]); } catch(e) {  } }
         const prose = full.replace(/CHOICES:[\s\S]*$/,"").trim();
         const newAiNode = {
           id:`ai_${Date.now()}`, title:"The Story Continues",
@@ -262,7 +262,7 @@ export default function GameScreen({ storyId, onBack, onUnlock, light }) {
 
             {aiMode && (
               <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-violet-950/30 border border-violet-800/30 text-xs text-violet-400">
-                <span>✦</span><span>AI Mode on — Claude continues your story after each choice</span>
+                <span>✦</span><span>AI Mode on — Ai continues your story after each choice</span>
               </div>
             )}
 
